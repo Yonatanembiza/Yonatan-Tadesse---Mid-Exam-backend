@@ -4,6 +4,7 @@
   "description": "Midterm Exam backend",
   "main": "backend-app.js",
   "scripts": {
+    "start": "nodemon | ng serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

@@ -1,1 +1,10 @@
-<p>hSales By Store Location and Customer Email</p>
+<p>Sales By Store Location and Customer Email</p>
+
+<ul>
+    <li *ngFor="let sale of sales">
+      <!-- <a [routerLink]="['/all-sales', sale.storeLocation, sale.customer.email]"> -->
+        {{ sale.storeLocation }}  
+        {{ sale.customer.email }}
+    <!-- </a> -->
+    </li>
+  </ul>

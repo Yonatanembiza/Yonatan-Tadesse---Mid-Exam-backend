@@ -11,14 +11,14 @@ const getAllSalesByStoreLocationAndEmail= function(req, res){
     log("here")
     const storeLocation= req.params.storeLocation;
     const customerEmail= req.params.customerEmail;
-    const offset = process.env.DEFAULT_FIND_OFFSET;
-    const count = process.env.DEFAULT_FIND_COUNT;
+    const offset = parseInt(process.env.DEFAULT_FIND_OFFSET);
+    const count = parseInt(process.env.DEFAULT_FIND_COUNT);
     log(storeLocation, customerEmail, offset, count)
     //  find sales by storeLocation and customerEmail
    
     Sale.find({     
         storeLocation: storeLocation,
-        email: customerEmail})
+        'customer.email': customerEmail})
     .skip(offset)
     .limit(count)
     .exec(function(err, sales){
@@ -30,6 +30,7 @@ const getAllSalesByStoreLocationAndEmail= function(req, res){
         }
         response.status= 200;
         response.data= sales;
+        log(sales)
         return res.status(200).json(response);
     });
 };
